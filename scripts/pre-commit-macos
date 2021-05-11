@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "Ktlint Check Started"
-# Format code using KtLint static analysis
+ Format code using KtLint static analysis
 
 ./gradlew app:ktlintCheck --daemon
 

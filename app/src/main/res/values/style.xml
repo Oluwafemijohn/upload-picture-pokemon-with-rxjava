@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="acitivity_1_image">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:src">@drawable/ic_sign_up_background</item>
+    </style>
+
+    <style name="edit_text_field_container">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:background">@drawable/view_pager_container_border</item>
+    </style>
+</resources>
