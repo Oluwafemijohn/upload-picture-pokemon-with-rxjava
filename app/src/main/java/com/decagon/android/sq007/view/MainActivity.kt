@@ -1,8 +1,12 @@
 package com.decagon.android.sq007.view
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.decagon.android.sq007.api.PokemonApi
@@ -17,18 +21,19 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity(), OnItemClickListener {
     private lateinit var pokeApi: PokemonApi
-
     lateinit var adapter: PokemonAdapter
 
+    // The retrofit callback handler method
     private val callback = object : Callback<PokemonModel> {
+        // The on failure
         override fun onFailure(call: Call<PokemonModel>, t: Throwable) {
             Log.e("MainActivity", "Problem calling API {${t?.message}}")
         }
-
+        // On success handler method
         override fun onResponse(call: Call<PokemonModel>, response: Response<PokemonModel>) {
             response?.isSuccessful.let {
+                // attaching the response to the adapter
                 val resultList = response.body()
-                Log.d("MainActivity", "onResponse: $resultList")
                 adapter = resultList?.let { it1 -> PokemonAdapter(it1, this@MainActivity, this@MainActivity) }!!
                 binding.recyclerView.adapter = adapter
             }
@@ -40,20 +45,43 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         pokeApi = PokemonRetrofit.getPokemonEndpoint()
+        pokeApi.retrofitPokemon(100, 0).enqueue(callback)
 
-        pokeApi.retrofitPokemon().enqueue(callback)
+        // Select the number of pokemon to display
+        binding.sendLimit.setOnClickListener {
+            try {
+                // validation of the input field
+                if (TextUtils.isEmpty(binding.numberOfPokemon.text)) {
+                    binding.numberOfPokemon.error = "Enter a number"
+                    return@setOnClickListener
+                } else {
+                    // calling the retrofit function
+                    var number = binding.numberOfPokemon.text.toString().toInt()
+                    pokeApi.retrofitPokemon(number, 0).enqueue(callback)
+                    binding.numberOfPokemon.text.clear()
+                    it.hideKeyboard()
+                }
+            } catch (e: ArithmeticException) {
+                println(e)
+            }
+        }
 
-        //  PokemonRetrofit.getPokemon(callback)
-
+        // Attaching the linearlayout manager
         binding.recyclerView.layoutManager = GridLayoutManager(this, 2)
+        supportActionBar?.hide()
     }
 
+    fun View.hideKeyboard() {
+        val inputManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputManager.hideSoftInputFromWindow(windowToken, 0)
+    }
+
+    // Onclick listener and sending the name to the second activity
     override fun onItemClick(position: Int, items: PokemonModel) {
-//        Log.d("onItemClick", "onItemClick: position= $position")
         var pokemonName = items.results[position].name
         var pokemonUrl = items.results[position].url
-
         var position = position
 
         val intent = Intent(this, PokemonDetailsActivity::class.java)
@@ -62,6 +90,5 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
         intent.putExtra("Position", (position + 1).toString())
         Log.d("MainActivity_positio", "MAinActivity $position")
         startActivity(intent)
-//        finish()
     }
 }

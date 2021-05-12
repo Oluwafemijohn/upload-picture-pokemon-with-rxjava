@@ -1,4 +1,21 @@
 <resources>
-    <string name="app_name">Decagon Android 007</string>
+    <string name="app_name">Pokemon List</string>
     <string name="text_italic">italic</string>
+    <string name="implementation_2">Implementation 2</string>
+    <string name="enter_number_of_pokemon">Enter number of pokemon</string>
+    <string name="stats">Stats</string>
+    <string name="sprites">Sprites</string>
+    <string name="back_defual">Back defual</string>
+    <string name="back_female">Back female</string>
+    <string name="back_shiny">Back shiny</string>
+    <string name="back_shiny_female">Back shiny female</string>
+    <string name="front_female">Front female</string>
+    <string name="front_shiny">Front shiny</string>
+    <string name="front_shiny_female">Front shiny female</string>
+    <string name="pokemon_abilities">Pokemon abilities</string>
+    <string name="pokemon_moves">Pokemon moves</string>
+    <string name="game_indeices">Game indeices</string>
+    <string name="this_is_something">This is something</string>
+    <string name="some_text">Some text</string>
+
 </resources>

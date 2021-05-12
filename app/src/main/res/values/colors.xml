@@ -9,4 +9,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="greyish">#C8C5C5</color>
     <color name="grey" >#D8E4F1</color>
+    <color name="lilac" >#BE6FC5</color>
+    <color name="redish" >#ED528A</color>
+    <color name="blueish" >#3D74B6</color>
+    <color name="greenish" >#5AB350</color>
+    <color name="lightgreen" >#77C56E</color>
+    <color name="background_color" >#6B94BD</color>
 </resources>

@@ -54,82 +54,279 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-<!--                <androidx.recyclerview.widget.RecyclerView-->
-<!--                    android:id="@+id/sprites_recyclerview"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"-->
-<!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+                <TextView
+                    android:id="@+id/Stats_title"
+                    style="@style/pokemon_character_header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:background="@drawable/round_border"
+                    android:text="@string/stats"
+                    android:textStyle="bold"
+                    android:backgroundTint="@color/blueish"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/scrollable_inner_constrain" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/detail_stats_recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="24dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Stats_title"
+                    tools:listitem="@layout/stat_card_view" />
+
+                <TextView
+                    android:id="@+id/sprites_title"
+                    style="@style/pokemon_character_header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:background="@drawable/round_border"
+                    android:text="@string/sprites"
+                    android:backgroundTint="@color/redish"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_stats_recyclerView" />
+
+
+
+                <LinearLayout
+                    android:id="@+id/gridLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/sprites_title">
+
+                    <LinearLayout
+                        android:id="@+id/back_default_layer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/padding_10dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/sprite_title"
+                            android:text="@string/back_defual"/>
+
+
+                        <ImageView
+                            android:id="@+id/back_default"
+                            style="@style/sprite_image"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/back_female_layer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/padding_10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                           style="@style/sprite_title"
+                            android:text="@string/back_female"/>
+
+
+                        <ImageView
+                            android:id="@+id/back_female"
+                           style="@style/sprite_image"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/bach_shiny_layer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/padding_10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/sprite_title"
+                            android:text="@string/back_shiny"/>
+
+
+                        <ImageView
+                            android:id="@+id/back_shiny"
+                          style="@style/sprite_image"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/back_shiny_female_layer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/padding_10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/sprite_title"
+                            android:text="@string/back_shiny_female"/>
+
+
+                        <ImageView
+                            android:id="@+id/back_shiny_female"
+                           style="@style/sprite_image"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/front_female_layer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/padding_10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/sprite_title"
+                            android:text="@string/front_female"/>
+
+
+                        <ImageView
+                            android:id="@+id/front_female"
+                           style="@style/sprite_image"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/front_shiny_ayer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/padding_10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/sprite_title"
+                            android:text="@string/front_shiny"/>
+
+
+                        <ImageView
+                            android:id="@+id/front_shiny"
+                          style="@style/sprite_image"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/front_shiny_female_layer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/padding_10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/sprite_title"
+                            android:text="@string/front_shiny_female"/>
+
+
+                        <ImageView
+                            android:id="@+id/front_shiny_female"
+                            style="@style/sprite_image"/>
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
 
                 <TextView
                     android:id="@+id/ability_title"
+                    style="@style/pokemon_character_header"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="44dp"
-                    android:text="Pokemon abilities"
-                    android:textSize="20dp"
+                    android:layout_marginTop="52dp"
+                    android:background="@drawable/round_border"
+                    android:text="@string/pokemon_abilities"
                     android:textStyle="bold"
+                    android:backgroundTint="@color/teal_200"
+                    app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.524"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/gridLayout" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/detail_ability_recyclerView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="100dp"
                     android:layout_marginTop="24dp"
-                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ability_title" />
+                    app:layout_constraintTop_toBottomOf="@+id/ability_title"
+                    tools:listitem="@layout/ability_card_view" />
 
                 <TextView
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:text="Pokemon moves"
-                    android:textSize="20dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/round_border"
+                    android:text="@string/pokemon_moves"
+                    style="@style/pokemon_character_header"
                     android:textStyle="bold"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/game_indices" />
+
+                <TextView
+                    android:id="@+id/game_indices_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/round_border"
+                    style="@style/pokemon_character_header"
+                    android:text="@string/game_indeices"
+                    android:backgroundTint="@color/lightgreen"
+                    app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/detail_ability_recyclerView" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/detail_form_recyclerView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView" />
 
                 <TextView
                     android:id="@+id/game_indices"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Test view"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="16dp"
+                    android:text=""
+                    android:textColor="@color/black"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/detail_form_recyclerView" />
+                    app:layout_constraintTop_toBottomOf="@+id/game_indices_title" />
 
-
-
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/detail_move_recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:foregroundGravity="center"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-
         </ScrollView>
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
     <TextView
         android:id="@+id/pokemon_detail_name"
         android:layout_width="wrap_content"
@@ -144,6 +341,5 @@
         app:layout_constraintHorizontal_bias="0.253"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

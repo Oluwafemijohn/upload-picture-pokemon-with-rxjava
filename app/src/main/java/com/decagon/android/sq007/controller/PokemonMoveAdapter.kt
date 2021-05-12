@@ -6,13 +6,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.decagon.android.sq007.databinding.MoveCardViewBinding
 import com.decagon.android.sq007.model.subModel.Move
 
+// adapter for
 class PokemonMoveAdapter(var items: List<Move>) :
     RecyclerView.Adapter<PokemonMoveAdapter.CardViewHolder>() {
 
     class CardViewHolder constructor(val binding: MoveCardViewBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(move: Move) {
-            binding.formType.text = move.move.name
+            // attaching the value to text field
+            binding.moveName.text = move.move.name
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {

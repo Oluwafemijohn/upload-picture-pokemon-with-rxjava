@@ -9,10 +9,11 @@ import com.decagon.android.sq007.model.subModel.Ability
 
 class PokemonAbilityAdapter(var items: List<Ability>, val context: Context) :
     RecyclerView.Adapter<PokemonAbilityAdapter.CardViewHolder>() {
-
+    // Adapter class
     class CardViewHolder constructor(val binding: AbilityCardViewBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Ability) {
+            // binding the adapter with the data
             binding.abilityName.text = item.ability.name
         }
     }

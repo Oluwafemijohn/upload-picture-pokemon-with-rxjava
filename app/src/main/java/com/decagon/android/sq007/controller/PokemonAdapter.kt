@@ -10,6 +10,7 @@ import com.decagon.android.sq007.databinding.CardviewBinding
 import com.decagon.android.sq007.model.mainModel.PokemonModel
 import com.decagon.android.sq007.model.mainModel.Result
 
+// Adapter for the list of pokemons
 class PokemonAdapter(var items: PokemonModel, private val listener: OnItemClickListener, private val context: Context) :
     RecyclerView.Adapter<PokemonAdapter.CardViewHolder>() {
 
@@ -17,8 +18,9 @@ class PokemonAdapter(var items: PokemonModel, private val listener: OnItemClickL
         RecyclerView.ViewHolder(binding.root),
         View.OnClickListener {
         fun bind(result: Result) {
+            // pokemont name totext field
             binding.pokemonTitle.text = result.name
-//            binding.recyclerViewPokemonImage
+            // Attaching the image to the recyclerview
             Glide.with(context)
                 .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${adapterPosition + 1}.png")
                 .into(binding.recyclerViewPokemonImage)
@@ -49,7 +51,7 @@ class PokemonAdapter(var items: PokemonModel, private val listener: OnItemClickL
         return items.results.size
     }
 }
-
+// Onclick interface
 interface OnItemClickListener {
     fun onItemClick(position: Int, items: PokemonModel)
 }

@@ -6,6 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object PokemonRetrofit {
 
+    // the retrofit method
     fun getPokemonEndpoint(): PokemonApi {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
