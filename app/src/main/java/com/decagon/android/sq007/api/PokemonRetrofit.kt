@@ -1,6 +1,6 @@
 package com.decagon.android.sq007.api
 
-import com.decagon.android.sq007.api.Constance.BASE_URL
+import com.decagon.android.sq007.api.Constants.BASE_URL
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

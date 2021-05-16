@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.MainActivity">
 
-    <item android:id="@+id/history"
+    <item android:id="@+id/implementation_two"
         android:title="@string/implementation_2"
         android:orderInCategory="100"
         app:showAsAction="never"/>

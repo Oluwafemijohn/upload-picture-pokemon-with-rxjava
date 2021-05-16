@@ -5,15 +5,20 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import com.decagon.android.sq007.R
 import com.decagon.android.sq007.api.PokemonApi
 import com.decagon.android.sq007.api.PokemonRetrofit
 import com.decagon.android.sq007.controller.OnItemClickListener
 import com.decagon.android.sq007.controller.PokemonAdapter
 import com.decagon.android.sq007.databinding.ActivityMainBinding
+import com.decagon.android.sq007.implementationTwo.ImplemeantationTwoActivity
 import com.decagon.android.sq007.model.mainModel.PokemonModel
 import retrofit2.Call
 import retrofit2.Callback
@@ -71,6 +76,9 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
         // Attaching the linearlayout manager
         binding.recyclerView.layoutManager = GridLayoutManager(this, 2)
         supportActionBar?.hide()
+
+        // Adding the action bar to it tool bar
+        setSupportActionBar(findViewById(R.id.contact_one_tool_bar))
     }
 
     fun View.hideKeyboard() {
@@ -90,5 +98,27 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
         intent.putExtra("Position", (position + 1).toString())
         Log.d("MainActivity_positio", "MAinActivity $position")
         startActivity(intent)
+    }
+
+    // To inflate the menu
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.top_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle item selection
+        return when (item.itemId) {
+            R.id.implementation_two -> {
+                var intent = Intent(this, ImplemeantationTwoActivity::class.java)
+                startActivity(intent)
+
+                true
+            }
+            else -> {
+                super.onOptionsItemSelected(item)
+            }
+        }
     }
 }

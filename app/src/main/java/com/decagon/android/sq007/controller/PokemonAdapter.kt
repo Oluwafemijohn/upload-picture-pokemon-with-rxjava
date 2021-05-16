@@ -11,7 +11,11 @@ import com.decagon.android.sq007.model.mainModel.PokemonModel
 import com.decagon.android.sq007.model.mainModel.Result
 
 // Adapter for the list of pokemons
-class PokemonAdapter(var items: PokemonModel, private val listener: OnItemClickListener, private val context: Context) :
+class PokemonAdapter(
+    var items: PokemonModel,
+    private val listener: OnItemClickListener,
+    private val context: Context
+) :
     RecyclerView.Adapter<PokemonAdapter.CardViewHolder>() {
 
     inner class CardViewHolder constructor(val binding: CardviewBinding) :
@@ -51,6 +55,7 @@ class PokemonAdapter(var items: PokemonModel, private val listener: OnItemClickL
         return items.results.size
     }
 }
+
 // Onclick interface
 interface OnItemClickListener {
     fun onItemClick(position: Int, items: PokemonModel)
