@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Pokemon List</string>
+    <string name="app_name">PoList|PicsUpload</string>
     <string name="text_italic">italic</string>
     <string name="implementation_2">Implementation 2</string>
     <string name="enter_number_of_pokemon">Enter number of pokemon</string>

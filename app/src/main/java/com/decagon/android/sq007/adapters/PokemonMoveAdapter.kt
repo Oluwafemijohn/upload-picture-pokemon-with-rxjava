@@ -1,4 +1,4 @@
-package com.decagon.android.sq007.controller
+package com.decagon.android.sq007.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

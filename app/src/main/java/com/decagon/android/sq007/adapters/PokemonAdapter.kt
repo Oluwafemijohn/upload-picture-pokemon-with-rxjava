@@ -1,4 +1,4 @@
-package com.decagon.android.sq007.controller
+package com.decagon.android.sq007.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -11,12 +11,10 @@ import com.decagon.android.sq007.model.mainModel.PokemonModel
 import com.decagon.android.sq007.model.mainModel.Result
 
 // Adapter for the list of pokemons
-class PokemonAdapter(
-    var items: PokemonModel,
-    private val listener: OnItemClickListener,
-    private val context: Context
-) :
+class PokemonAdapter(private val listener: OnItemClickListener, private val context: Context) :
     RecyclerView.Adapter<PokemonAdapter.CardViewHolder>() {
+
+    var items: PokemonModel = PokemonModel("", "", listOf())
 
     inner class CardViewHolder constructor(val binding: CardviewBinding) :
         RecyclerView.ViewHolder(binding.root),
@@ -43,16 +41,23 @@ class PokemonAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
+
         val binding = CardviewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return CardViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
+
         holder.bind(items.results[position])
     }
 
     override fun getItemCount(): Int {
         return items.results.size
+    }
+
+    fun setData(data: PokemonModel) {
+        items = data
+        notifyDataSetChanged()
     }
 }
 

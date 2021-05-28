@@ -2,6 +2,7 @@ package com.decagon.android.sq007.api
 
 import com.decagon.android.sq007.model.mainModel.PokemonModel
 import com.decagon.android.sq007.model.subModel.PokemonSubModel
+import io.reactivex.Observable
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -14,7 +15,7 @@ interface PokemonApi {
     fun retrofitPokemon(
         @Query("limit") limit: Int,
         @Query("offset") offset: Int
-    ): Call<PokemonModel>
+    ): Observable<PokemonModel>
 
     // Used to get pokemons when url is passed from the activity
     @GET

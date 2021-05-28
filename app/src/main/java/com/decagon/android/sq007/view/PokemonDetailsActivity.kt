@@ -7,11 +7,11 @@ import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.decagon.android.sq007.adapters.PokemonAbilityAdapter
+import com.decagon.android.sq007.adapters.PokemonMoveAdapter
+import com.decagon.android.sq007.adapters.PokemonStatsAdapter
 import com.decagon.android.sq007.api.PokemonApi
 import com.decagon.android.sq007.api.PokemonRetrofit
-import com.decagon.android.sq007.controller.PokemonAbilityAdapter
-import com.decagon.android.sq007.controller.PokemonMoveAdapter
-import com.decagon.android.sq007.controller.PokemonStatsAdapter
 import com.decagon.android.sq007.databinding.ActivityPokemonDetailsBinding
 import com.decagon.android.sq007.model.subModel.PokemonSubModel
 import retrofit2.Call
@@ -121,6 +121,7 @@ class PokemonDetailsActivity : AppCompatActivity() {
         this.visibility = View.GONE
     }
 
+    // Attaching pokemon images to the Image view
     fun attachPicture(spriteList: Any?, imageView: ImageView, imageLinearLayer: LinearLayout) {
         if (spriteList == null) imageLinearLayer.hide()
         Glide.with(this@PokemonDetailsActivity)

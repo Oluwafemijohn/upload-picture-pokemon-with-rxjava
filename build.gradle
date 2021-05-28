@@ -3,6 +3,9 @@
 
 buildscript {
     ext.kotlin_version = "1.4.31"
+    ext.retrofit_version = '2.9.0'
+    ext.moshi_version = '2.9.0'
+    ext.okhttp_version = '4.9.0'
     repositories {
         maven {
             url "https://plugins.gradle.org/m2/"
